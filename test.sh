@@ -1,6 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Activate venv if it exists
+if [ -f ".venv/bin/activate" ]; then
+  . .venv/bin/activate
+fi
 
 echo "Running tests for the sample project..."
-
-# Run tests using pytest
-pytest tests/
+pytest -q
